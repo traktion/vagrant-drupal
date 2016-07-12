@@ -1,0 +1,8 @@
+---
+# file: drupal.yml
+- hosts: drupal
+  roles:
+    - common
+    - docker
+    - docker-compose
+    - drupal

@@ -1,0 +1,12 @@
+---
+# Fix Ubuntu 16.04 issues
+
+  - hosts: drupal
+    gather_facts: False
+    tasks:
+      - name: apt-get update
+        raw: apt-get update -qq
+      - name: Install python 2.7
+        raw: apt-get install -qq python2.7
+      - name: Set hostname
+        replace: dest=/etc/hosts regexp='127.0.0.1 localhost$' replace='127.0.0.1 localhost ubuntu-xenial\n'

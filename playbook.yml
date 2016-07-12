@@ -1,0 +1,4 @@
+---
+# file: playbook.yml
+- include: init.yml
+- include: drupal.yml

@@ -1,0 +1,15 @@
+---
+
+- name: Download latest docker-compose.yml and support files
+  git:
+    repo=https://github.com/traktion0/drupal-docker-compose
+    dest=/home/ubuntu/drupal-docker-compose
+
+# PG: Buggy - cannot work without pip install docker-compose, which fails to install
+#- name: Restart Drupal Docker Service
+#  docker_service:
+#    project_src: /home/ubuntu/drupal-docker-compose
+#    state: present
+
+- name: Start Drupal Docker Service
+  raw: "cd /home/ubuntu/drupal-docker-compose; docker-compose up -d"
